@@ -1,0 +1,8 @@
+
+# All mutations available in graphql
+type Mutation {
+    # User mutations
+    createUser(user : UserInput!) : User
+    updateUser(id : Long!, user : UserInput!) : User
+    deleteUser(id : Long!) : Long
+}

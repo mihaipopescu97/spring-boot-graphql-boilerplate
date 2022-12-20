@@ -1,0 +1,8 @@
+scalar Long
+
+# Queries fo the entire server
+type Query {
+    isAlive : Boolean
+    # User queries
+    userById(id : Long) : User
+}

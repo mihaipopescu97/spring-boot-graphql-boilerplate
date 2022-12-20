@@ -1,0 +1,16 @@
+scalar Date
+type User {
+    id : ID
+    databaseVersion : Int
+    createDate : Date
+    updateDate : Date
+    name : String
+    password : String
+    username : String
+    email : String
+    role : Role
+    isExpired : Boolean
+    isLocked : Boolean
+    isCredentialsExpired : Boolean
+    isEnabled : Boolean
+}

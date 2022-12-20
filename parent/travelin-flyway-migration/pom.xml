@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>parent</artifactId>
+        <groupId>com.travelin</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>travelin-flyway-migration</artifactId>
+    <name>travelin-flyway-migration</name>
+    <description>Travelin database migration module</description>
+
+    <properties>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.5.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>Flyway</finalName>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.flywaydb</groupId>
+                    <artifactId>flyway-maven-plugin</artifactId>
+                    <version>8.5.13</version>
+                    <configuration>
+                        <driver>org.postgresql.Driver</driver>
+                        <url>${env.JDBC_URL}</url>
+                        <user>${env.DB_USERNAME}</user>
+                        <password>${env.DB_PASSWORD}</password>
+                        <schemas>
+                            <schema>travelin</schema>
+                        </schemas>
+
+                        <locations>filesystem:/src/main/resources/db/migrations</locations>
+                        <validateMigrationNaming>true</validateMigrationNaming>
+
+
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
