@@ -1,1 +1,1 @@
-# spring-boot-graphql-boilerplate
+# Boilerplate for a spring boot application using graphql
